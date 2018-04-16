@@ -1,5 +1,4 @@
 # Wedding website
-# TheMonkees
 
 ## Overview
 
