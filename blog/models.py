@@ -3,7 +3,6 @@ from django.utils import timezone
 from django.contrib.auth.models import AbstractUser, UserManager
 
 
-
 class Contact(models.Model):
 
     first_name = models.CharField(max_length=255)
@@ -21,12 +20,6 @@ class Contact(models.Model):
 
 
 class Post(models.Model):
-    """
-    Here we'll define our Post model
-    """
-
-    # author is linked to a registered
-    # user, via the User model in the auth app.
     author = models.ForeignKey('account.User')
     title = models.CharField(max_length=200)
     content = models.TextField()
@@ -42,3 +35,9 @@ class Post(models.Model):
 
     def __unicode__(self):
         return self.title
+
+class ViewsSummary(Post):
+    class Meta:
+        proxy = True
+        verbose_name = "View Summary"
+        verbose_name_plural = "View Summary"

@@ -3,6 +3,7 @@ from django.utils import timezone
 from .models import Post
 from .forms import BlogPostForm
 from django.shortcuts import redirect
+from .models import ViewsSummary
 
 def post_list(request):
 	posts = Post.objects.filter(published_date__lte=timezone.now()
